@@ -42,12 +42,16 @@ fun getMultiples(n: Int, initial: Int): Array<Int> =
  * @param functionTest the function to be evaluated
  * @return the average time of the 11 values, removing the maximum and minimum values.
  */
-fun algorithmEvaluation(functionTest: () -> Unit): Int {
-    val executionTimes = (1..13).map {
-        val startTime = System.currentTimeMillis()
-        functionTest()
-        System.currentTimeMillis() - startTime
-    }.sorted().drop(1).dropLast(1) // Drop the minimum and maximum times
-    return executionTimes.average().toInt()
-}
+fun algorithmEvaluation(functionTest: ()->Unit) :Long {
+    var sum = 0L; var tMax= 0L; var tMin = Long.MAX_VALUE
 
+    for( j in 1 .. 13) {
+        val ti = System.currentTimeMillis()
+        functionTest()
+        val t= System.currentTimeMillis()-ti
+        if ( t > tMax ) tMax= t
+        if ( t < tMin ) tMin = t
+        sum+= t
+    }
+    return ( sum-tMin-tMax )/11
+}

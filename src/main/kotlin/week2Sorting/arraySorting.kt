@@ -29,7 +29,7 @@ fun insertionSort(a:Array<Int>, left:Int=0, right: Int=a.size-1) {
      */
     for( j in left+1 .. right) {
        // Modify: Use left shift instead of exchange
-       val key = a[j]
+       //val key = a[j]
        for ( i in j downTo left+1) {
            if ( a[i] < a[i-1])
               a.exchange(i, i -1)
@@ -157,7 +157,7 @@ tailrec fun selectionSortRecursive( a:Array<Int>, left:Int=0, right: Int=a.size-
  * @param a - array
  * @param left - index where the subarray starts (inclusive)
  * @param right - index where the subarray ends (inclusive)
- * Recurrence:
+ * Recurrence: C(0) = O(1); C(n) = O(n) + 2xC(n/2)
  */
 fun mergeSort(a:Array<Int>, left: Int=0, right: Int = a.size-1 )  {
   if ( left < right) {
@@ -170,6 +170,7 @@ fun mergeSort(a:Array<Int>, left: Int=0, right: Int = a.size-1 )  {
 /**
  * Take two sorted subarrays and merge them into a single sorted subarray.
  * First subarray is a[left .. m] and the second subarray is a[m+1..right]
+ * Depth of the recursion: lg n
  * Complexity in terms of time:
  *  worst case - O(n)
  *  best case - O(n)
@@ -209,7 +210,6 @@ fun merge(a: Array<Int>, left: Int, m: Int, right: Int) {
 fun mergeSortButtonUp(a: Array<Int>,l: Int,r: Int){
     var m = 1
     while (m <= r-l) {
-        var i = l
         for (i in l .. r - m step 2*m) {
             merge(a, i, i + m - 1, min(r, i + 2 * m - 1))
         }

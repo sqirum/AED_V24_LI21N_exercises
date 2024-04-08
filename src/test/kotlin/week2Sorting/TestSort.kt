@@ -1,5 +1,8 @@
 package week2Sorting
 
+import week5QuickSort.*
+import week6LinearSort.countingSort
+import week6LinearSort.radixSort
 import kotlin.random.Random
 import kotlin.test.*
 
@@ -13,12 +16,15 @@ import kotlin.test.*
         //bubbleSortFlag(a, l, r)
         //selectionSort(a, l, r)
         //selectionSortRecursive(a, l, r)
-        mergeSort(a,l,r)
+        //mergeSort(a,l,r)
         //mergeSortButtonUp(a, l, r)
         //heapSort(a, Int::compareTo)
-        //quickSortHybrid(a,0, a.size-1, Int::compareTo)
+        //quickSort(a,l, r, Int::compareTo)
+        //quickSortWithMedian(a,l, r, Int::compareTo)
+        //quickSortThreePartition(a,l, r, Int::compareTo)
+        //quickSortHybrid(a,l, r, Int::compareTo)
         //countingSort(a)
-        //radixSort( a )
+        radixSort( a )
     fun testSorted( a: Array<Int> ) {
         val expect = a.sortedArray()
         sortArray(a, 0, a.size-1)
