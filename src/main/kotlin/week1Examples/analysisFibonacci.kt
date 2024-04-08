@@ -21,7 +21,9 @@ fun evaluateFifonacci(identifier:String, values: Array<Int>, funFibonacci: (Int)
 }
 
 fun main() {
+
     evaluateFifonacci("fibonacci", getMultiples(5, 1920000), ::fibonacci)
     evaluateFifonacci("fibonacci with auxiliar memory", getMultiples(4, 1920000), ::fibonacciMemoryN)
     evaluateFifonacci("fibonacci recursive", getMultiples(3, 20),::fibonacciRecursive)
+
 }
